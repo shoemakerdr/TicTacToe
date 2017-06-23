@@ -1,13 +1,37 @@
 'use strict';
 
+/**
+ * Takes a board object and two player objects and controls interaction between
+ * them.
+ * 
+ * @constructor
+ * @param {Object} board The board instance
+ * @param {Object} x An instance of Player object
+ * @param {Object} o An instance of Player object
+ */
 function Game(board, x, o) {
-    this.x = x;
-    this.o = o;
+    this.playerone = {
+        letter: 'x',
+        player: x
+    };
+    
+    this.playertwo = {
+        letter: 'o',
+        player: o
+    };
+    this.currentTurn = 'playerone';
 
     this.board = board;
 }
 
-Game.prototype.isWinner = function(letter) {
+/**
+ * Takes a player object and checks if player won game.
+ * 
+ * @param {Player} destructured to only take letter property as param
+ * @return {Boolean}
+ */
+Game.prototype.isWinner = function({letter}) {
+    
     const array = this.board.spaces;
 
     if (array[0] === letter && array[1] === letter && array[2] === letter ||
@@ -23,18 +47,44 @@ Game.prototype.isWinner = function(letter) {
     return false;
 };
 
+/**
+ * Will check whether game is over.
+ * 
+ * @return {Boolean}
+ */
 Game.prototype.isGameOver = function() {
-    return (this.isWinner('x') || this.isWinner('o') || this.board.isFull()) ?
-        true : false;
+    return (this.isWinner(this.playerone) ||
+            this.isWinner(this.playertwo) ||
+            this.board.isFull()) ?
+            true :
+            false;
 };
 
+/**
+ * Gives results of the name.
+ * 
+ * @Return {String}
+ * 
+ * TODO: change 'x/o' to template string with winner's name. 
+ *   Ex. `${this.x.name} is the winner!`
+ * 
+ * TODO: change return results based on whether game is one or two player
+ *   If one player: Return 'You win' or 'You lose'
+ *   If two player: Return `${winner} is the winner!`
+ */
 Game.prototype.results = function() {
-    return this.isWinner('x') ? 'x is the winner.' :
-           this.isWinner('o') ? 'o is the winner.' :
+    return this.isWinner(this.playerone) ? 'x is the winner!' :
+           this.isWinner(this.playertwo) ? 'o is the winner!' :
            'Draw.';
 };
 
-Game.prototype.template = function(spaces) {
+/**
+ * Takes a board object and gives human readable view of board
+ * 
+ * @param {Board} destructured to only take spaces property as param
+ * @return {String}
+ */
+Game.prototype.template = function({spaces}) {
     const array = spaces.map(space => space === null ? ' ' : space);
     return `
      ${array[0]} | ${array[1]} | ${array[2]}
@@ -46,7 +96,7 @@ Game.prototype.template = function(spaces) {
 };
 
 Game.prototype.showBoard = function() {
-    return this.template(this.board.spaces);
+    return this.template(this.board);
 };
 
 module.exports = Game;
