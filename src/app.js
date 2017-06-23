@@ -2,4 +2,4 @@
 
 const tictactoe = require('./tictactoe');
 
-tictactoe.play();
+tictactoe.twoplayer();
