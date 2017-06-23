@@ -21,6 +21,9 @@ function checkGame() {
     }
 }
 
+/**
+ * TODO: write one player version
+ */
 function oneplayer() {
     return;
 }
@@ -42,19 +45,3 @@ function play() {
 }
 
 module.exports = {oneplayer, twoplayer};
-
-// function setVar(message, variable, callback) {
-//     process.stdout.write(message);
-//     process.stdin.setEncoding('utf8');
-
-//     process.stdin.on('data', (data) => {
-//         const d = util.inspect(data);
-//         variable = d.substring(1, d.length - 3);
-//         process.stdout.write(variable);
-//         process.stdin.pause();
-
-//     });
-//     process.stdin.on('end', () => {
-//         callback();
-// });
-// }
