@@ -10,16 +10,16 @@
  * @param {Object} o An instance of Player object
  */
 function Game(board, x, o) {
-    this.playerone = {
+    this.playerOne = {
         letter: 'x',
         player: x
     };
     
-    this.playertwo = {
+    this.playerTwo = {
         letter: 'o',
         player: o
     };
-    this.currentTurn = 'playerone';
+    this.currentTurn = 'playerOne';
 
     this.board = board;
 }
@@ -34,17 +34,14 @@ Game.prototype.isWinner = function({letter}) {
     
     const array = this.board.spaces;
 
-    if (array[0] === letter && array[1] === letter && array[2] === letter ||
-        array[0] === letter && array[3] === letter && array[6] === letter ||
-        array[0] === letter && array[4] === letter && array[8] === letter ||
-        array[1] === letter && array[4] === letter && array[7] === letter ||
-        array[2] === letter && array[4] === letter && array[6] === letter ||
-        array[2] === letter && array[5] === letter && array[8] === letter ||
-        array[3] === letter && array[4] === letter && array[5] === letter ||
-        array[6] === letter && array[7] === letter && array[8] === letter
-    )
-        return true;
-    return false;
+    return (array[0] === letter && array[1] === letter && array[2] === letter 
+            || array[0] === letter && array[3] === letter && array[6] === letter
+            || array[0] === letter && array[4] === letter && array[8] === letter
+            || array[1] === letter && array[4] === letter && array[7] === letter
+            || array[2] === letter && array[4] === letter && array[6] === letter
+            || array[2] === letter && array[5] === letter && array[8] === letter
+            || array[3] === letter && array[4] === letter && array[5] === letter
+            || array[6] === letter && array[7] === letter && array[8] === letter);
 };
 
 /**
@@ -53,11 +50,9 @@ Game.prototype.isWinner = function({letter}) {
  * @return {Boolean}
  */
 Game.prototype.isGameOver = function() {
-    return (this.isWinner(this.playerone) ||
-            this.isWinner(this.playertwo) ||
-            this.board.isFull()) ?
-            true :
-            false;
+    return (this.isWinner(this.playerOne) 
+            || this.isWinner(this.playerTwo) 
+            || this.board.isFull());
 };
 
 /**
@@ -73,9 +68,11 @@ Game.prototype.isGameOver = function() {
  *   If two player: Return `${winner} is the winner!`
  */
 Game.prototype.results = function() {
-    return this.isWinner(this.playerone) ? 'x is the winner!' :
-           this.isWinner(this.playertwo) ? 'o is the winner!' :
-           'Draw.';
+    return this.isWinner(this.playerOne) 
+           ? 'x is the winner!' 
+           : this.isWinner(this.playerTwo) 
+               ? 'o is the winner!' 
+               : 'Draw.';
 };
 
 /**
@@ -95,8 +92,22 @@ Game.prototype.template = function({spaces}) {
     \n`;
 };
 
+/**
+ * Shows current state of board
+ * 
+ * @return {String}
+ */
 Game.prototype.showBoard = function() {
     return this.template(this.board);
+};
+
+/**
+ * Sets turn to next player
+ */
+Game.prototype.nextTurn = function() {
+    this.currentTurn = (this.currentTurn === 'playerOne')
+                        ? 'playerTwo' 
+                        : 'playerOne';
 };
 
 module.exports = Game;
