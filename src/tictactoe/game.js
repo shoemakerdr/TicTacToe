@@ -27,7 +27,7 @@ function Game(board, x, o) {
 /**
  * Takes a player object and checks if player won game.
  * 
- * @param {Player} destructured to only take letter property as param
+ * @param {Player} letter (destructured) letter property from player object
  * @return {Boolean}
  */
 Game.prototype.isWinner = function({letter}) {
