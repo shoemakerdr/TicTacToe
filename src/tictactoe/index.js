@@ -11,7 +11,7 @@ const cl = console.log;
 const b = new Board();
 const g = new Game(b,'x', 'o');
 
-play();
+// play();
 
 function checkGame() {
     cl(g.showBoard());
@@ -19,6 +19,14 @@ function checkGame() {
         cl(g.results());
         process.exit();
     }
+}
+
+function oneplayer() {
+    return;
+}
+
+function twoplayer() {
+    play();
 }
 
 function takeTurn(letter) {
@@ -33,7 +41,7 @@ function play() {
     takeTurn('x');
 }
 
-module.exports.play = play;
+module.exports = {oneplayer, twoplayer};
 
 // function setVar(message, variable, callback) {
 //     process.stdout.write(message);
