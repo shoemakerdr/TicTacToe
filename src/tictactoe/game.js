@@ -30,9 +30,9 @@ function Game(board, x, o) {
  * @return {String}
  */
 Game.prototype.randomPlayer = function() {
-    this.currentPlayer = (Math.floor(Math.random() * 2))
-                          ? 'playerOne'
-                          : 'playerTwo';
+    return (Math.floor(Math.random() * 2))
+            ? 'playerOne'
+            : 'playerTwo';
 };
 
 /**
@@ -71,6 +71,7 @@ Game.prototype.getMove = function (player) {
         console.log('Please pick a valid move.');
         this.getMove(player);
         return;
+    }
 };
 
 /**
