@@ -17,7 +17,7 @@ function Board(spaces) {
  * @param {Array} spaces Optional array of spaces used for testing.
  */
 Board.prototype.addMove = function(letter, position) {
-    this.spaces[position - 1] = letter;
+    this.spaces[position] = letter;
 };
 
 /**
