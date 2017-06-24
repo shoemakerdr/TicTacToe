@@ -120,9 +120,9 @@ Game.prototype.isGameOver = function() {
 Game.prototype.results = function() {
     console.log(this.showBoard());
     return this.isWinner(this.playerOne)
-           ? 'x is the winner!'
+           ? `${this.playerOne.player.name} is the winner!`
            : this.isWinner(this.playerTwo)
-               ? 'o is the winner!'
+               ? `${this.playerTwo.player.name} is the winner!`
                : 'Draw.';
 };
 
