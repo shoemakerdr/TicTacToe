@@ -118,6 +118,7 @@ Game.prototype.isGameOver = function() {
  *   If two player: Return `${winner} is the winner!`
  */
 Game.prototype.results = function() {
+    console.log(this.showBoard());
     return this.isWinner(this.playerOne)
            ? 'x is the winner!'
            : this.isWinner(this.playerTwo)
