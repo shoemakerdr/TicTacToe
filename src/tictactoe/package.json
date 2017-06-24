@@ -11,5 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "prompt-sync": "^4.1.5"
-  }
+  },
+  "devDependencies": {}
 }
