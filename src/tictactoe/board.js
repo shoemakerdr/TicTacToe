@@ -8,6 +8,7 @@
  */
 function Board(spaces) {
     this.spaces = spaces || [null,null,null,null,null,null,null,null,null];
+    this.currentPlayer = null;
 }
 
 /**
