@@ -19,7 +19,6 @@ function Game(board, x, o) {
         letter: 'o',
         player: o
     };
-    this.currentPlayer = null;
     this.previousWinner = null;
 }
 
@@ -41,7 +40,7 @@ Game.prototype.randomPlayer = function() {
  * @param  {String} player either 'playerOne' or 'playerTwo'
  */
 Game.prototype.setPlayer = function(player) {
-    this.currentPlayer = player;
+    this.board.currentPlayer = player;
 };
 
 Game.prototype.start = function() {
@@ -52,7 +51,7 @@ Game.prototype.start = function() {
 
 Game.prototype.takeTurns = function() {
     console.log(this.showBoard());
-    this.getMove(this.currentPlayer);
+    this.getMove(this.board.currentPlayer);
     if (this.isGameOver()) {
         console.log(this.results());
         process.exit();
@@ -158,7 +157,7 @@ Game.prototype.showBoard = function() {
  * @return {String} not current player
  */
 Game.prototype.nextPlayer = function() {
-    return (this.currentPlayer === 'playerOne')
+    return (this.board.currentPlayer === 'playerOne')
             ? 'playerTwo'
             : 'playerOne';
 };
