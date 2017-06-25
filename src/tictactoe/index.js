@@ -1,10 +1,10 @@
 'use strict';
 
 const util = require('util');
-const Board = require("./board");
-const Player = require("./player");
-const Game = require("./game");
-const prompt = require("prompt-sync")({autocomplete: false});
+const Board = require('./board');
+const Player = require('./player');
+const Game = require('./game');
+const prompt = require('prompt-sync')({autocomplete: false});
 
 /**
  * TODO: write one player version
