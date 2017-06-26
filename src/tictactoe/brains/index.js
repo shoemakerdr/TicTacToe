@@ -16,7 +16,6 @@ function type(type) {
 		easy: easy,
 		human: human
 	};
-	console.log(brains[type]);
 	return brains[type];
 }
 
