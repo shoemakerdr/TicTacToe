@@ -1,0 +1,22 @@
+{
+  "name": "ttt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoemakerdr/TicTacToe.git"
+  },
+  "author": "Derek Shoemaker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shoemakerdr/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/shoemakerdr/TicTacToe#readme",
+  "dependencies": {
+    "tictactoe-freecodecamp": "^1.0.0"
+  }
+}
