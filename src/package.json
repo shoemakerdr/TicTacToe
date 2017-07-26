@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/shoemakerdr/TicTacToe#readme",
   "dependencies": {
-    "tictactoe-freecodecamp": "^1.0.0"
+    "tictactoe-freecodecamp": "^1.0.1"
   }
 }
