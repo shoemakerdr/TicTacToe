@@ -1,5 +1,7 @@
 'use strict';
 
-const tictactoe = require('./tictactoe');
+const tictactoe = require('tictactoe-freecodecamp');
 
-tictactoe.play();
+const unbeatable = tictactoe.unbeatableGame();
+
+console.log(unbeatable.getBoardSpaces());
