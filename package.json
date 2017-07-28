@@ -1,9 +1,16 @@
 {
-  "name": "ttt",
+  "name": "tictactoe",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "tictactoe-freecodecamp": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.4.1"
+  },
   "scripts": {
+    "start": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/shoemakerdr/TicTacToe/issues"
   },
-  "homepage": "https://github.com/shoemakerdr/TicTacToe#readme",
-  "dependencies": {
-    "tictactoe-freecodecamp": "^1.0.1"
-  }
+  "homepage": "https://github.com/shoemakerdr/TicTacToe#readme"
 }
