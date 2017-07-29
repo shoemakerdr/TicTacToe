@@ -16,21 +16,21 @@ function view (handlers) {
 		space22: document.getElementById('space22')
 	};
 
-	function element (type, className, text) {
+	function element (type, className, text, id) {
 		const el = document.createElement(type);
 		button.innerHTML = text;
 		button.className = className;
+		if (id) button.id = id;
 		return el;
 	}
 
 	// html elements
-	const twoPlayerbutton = el('div', 'Two Player', 'button');
-	const easyGameButton = el('div', 'Easy', 'button');
-	const unbeatableGameButton = el('div', 'Unbeatable', 'button');
-	const yesButton = el('div', 'Yes', 'button');
-	const noButton = el('div', 'No', 'button');
+	const twoPlayerbutton = el('div', 'Two Player', 'button', 'twoPlayer');
+	const easyGameButton = el('div', 'Easy', 'button', 'easy');
+	const unbeatableGameButton = el('div', 'Unbeatable', 'button', 'unbeatable');
+	const yesButton = el('div', 'Yes', 'button', 'yes');
+	const noButton = el('div', 'No', 'button', 'no');
 	const startScreen = (function () {
-		// start screen div
 		const messageText = 'What kind of game do you want to play?'
 		const screen = el('div', null, 'options');
 		const message = el('p', messageText, 'message');
@@ -43,9 +43,7 @@ function view (handlers) {
 
 		return screen;
 	})();
-
 	const playAgainScreen = function (outcomeText) {
-		// play screen div
 		const messageText = 'Do you want to play again?'
 		const screen = el('div', null, 'options');
 		const outcome = el('p', outcomeText, 'message');
@@ -71,21 +69,35 @@ function view (handlers) {
 		}
 	}
 
-	function renderStartScreen (gameType, start) {
+	function renderStartScreen (gameType, gameTypeSetter, start) {
+		function handler (event) {
+			if (!!gameType[event.target.id]) {
+				gameTypeSetter(event.target.id);
+				start();
+				messageScreen.removeChild(startScreen);
+				messageScreen.removeEventListener('click', handler);
+			}
+		}
 		messageScreen.appendChild(startScreen);
-		messageScreen.removeChild(startScreen);
-		// render screen
-		// listen for options
-		// startScreenListener(gameType, start)
+		messageScreen.addEventListener('click', handler);
 	}
 
 	function renderPlayAgainScreen (outcome, yes, no) {
-		// render screen with outcome
-		// listen for options
-		// playAgainListener(yes, no)
 		const screen = playAgainScreen(outcome);
+		function handler (event) {
+			if (event.target.id === 'yes') {
+				yes();
+				messageScreen.removeChild(startScreen);
+				messageScreen.removeEventListener('click', handler);
+			}
+			if (event.target.id === 'no') {
+				no();
+				messageScreen.removeChild(screen);
+				messageScreen.removeEventListener('click', handler);
+			}
+		}
 		messageScreen.appendChild(screen);
-		messageScreen.removeChild(screen);
+		messageScreen.addEventListener('click', handler);
 	}
 
 	function addGameListener () {
@@ -96,26 +108,12 @@ function view (handlers) {
 		board.removeEventListener('click', handleGame);
 	}
 
-	function playAgainListener (yes, no) {
-		// user select to play again
-		// yes()
-		// no()
-		// clear playAgain screen
-	}
-
-	function startScreenListener (gameType, start) {
-		// user select game type
-		// gameType(type)
-		// then start game
-		// start()
-		// clear start screen
-	}
-
 	return {
 		renderBoard,
-		addGameListeners,
-		removeGameListeners,
-
+		renderStartScreen,
+		renderPlayAgainScreen,
+		addGameListener,
+		removeGameListener
 	};
 }
 
