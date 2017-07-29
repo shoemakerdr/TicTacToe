@@ -26,7 +26,7 @@ function controller (game, view) {
 	let activeGame;
 
 	function start () {
-		view.renderStartScreen(setGameType, playGame);
+		view.renderStartScreen(gameTypes, setGameType, playGame);
 	}
 
 	function setGameType (type) {
@@ -39,7 +39,7 @@ function controller (game, view) {
 	}
 
 	function gameOver () {
-		view.renderPlayAgain(activeGame.getState(), playGame, start);
+		view.renderPlayAgainScreen(activeGame.getState(), playGame, start);
 	}
 
 	function takeTurn (row, column) {
