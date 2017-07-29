@@ -1,7 +1,11 @@
 'use strict';
 
 const tictactoe = require('tictactoe-freecodecamp');
+const controller = require('./controller');
+const view = require('./view');
 
-const unbeatable = tictactoe.unbeatableGame();
+document.addEventListener('DOMContentLoaded', function () {
+	const app = controller(tictactoe, view);
 
-console.log(unbeatable.getBoardSpaces());
+	app.start();
+});
