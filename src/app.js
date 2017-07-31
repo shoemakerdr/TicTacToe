@@ -6,6 +6,5 @@ const view = require('./view');
 
 document.addEventListener('DOMContentLoaded', function () {
 	const app = controller(tictactoe, view);
-
 	app.start();
 });
