@@ -142,7 +142,11 @@ body {
 	}
 	.button {
 		font-size: 1.25em;
-		margin: .25em;
-		padding: .1em .2em;
+	}
+}
+
+@media screen and (max-width: 325px) {
+	.messageDiv {
+		font-size: 1em;
 	}
 }
