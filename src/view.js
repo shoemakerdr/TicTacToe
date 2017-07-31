@@ -16,25 +16,25 @@ function view (handlers) {
 		space22: document.getElementById('space22')
 	};
 
-	function element (type, className, text, id) {
+	function element (type, text, className, id) {
 		const el = document.createElement(type);
-		button.innerHTML = text;
-		button.className = className;
-		if (id) button.id = id;
+		el.innerHTML = text;
+		el.className = className;
+		if (id) el.id = id;
 		return el;
 	}
 
 	// html elements
-	const twoPlayerbutton = el('div', 'Two Player', 'button', 'twoPlayer');
-	const easyGameButton = el('div', 'Easy', 'button', 'easy');
-	const unbeatableGameButton = el('div', 'Unbeatable', 'button', 'unbeatable');
-	const yesButton = el('div', 'Yes', 'button', 'yes');
-	const noButton = el('div', 'No', 'button', 'no');
+	const twoPlayerbutton = element('div', 'Two Player', 'button', 'twoPlayer');
+	const easyGameButton = element('div', 'Easy', 'button', 'easy');
+	const unbeatableGameButton = element('div', 'Unbeatable', 'button', 'unbeatable');
+	const yesButton = element('div', 'Yes', 'button', 'yes');
+	const noButton = element('div', 'No', 'button', 'no');
 	const startScreen = (function () {
-		const messageText = 'What kind of game do you want to play?'
-		const screen = el('div', null, 'options');
-		const message = el('p', messageText, 'message');
-		const buttonDiv = el('div', null, 'buttons');
+		const messageText = 'What kind of game do you want to play?';
+		const screen = element('div', null, 'options');
+		const message = element('p', messageText, 'message');
+		const buttonDiv = element('div', null, 'buttons');
 		buttonDiv.appendChild(twoPlayerbutton);
 		buttonDiv.appendChild(easyGameButton);
 		buttonDiv.appendChild(unbeatableGameButton);
@@ -44,11 +44,11 @@ function view (handlers) {
 		return screen;
 	})();
 	const playAgainScreen = function (outcomeText) {
-		const messageText = 'Do you want to play again?'
-		const screen = el('div', null, 'options');
-		const outcome = el('p', outcomeText, 'message');
-		const message = el('p', messageText, 'message');
-		const buttonDiv = el('div', null, 'buttons');
+		const messageText = 'Do you want to play again?';
+		const screen = element('div', null, 'options');
+		const outcome = element('p', outcomeText, 'message');
+		const message = element('p', messageText, 'message');
+		const buttonDiv = element('div', null, 'buttons');
 		buttonDiv.appendChild(yesButton);
 		buttonDiv.appendChild(noButton);
 		screen.appendChild(outcome);
@@ -75,10 +75,12 @@ function view (handlers) {
 				gameTypeSetter(event.target.id);
 				start();
 				messageScreen.removeChild(startScreen);
+				messageScreen.style.display = 'none';
 				messageScreen.removeEventListener('click', handler);
 			}
 		}
 		messageScreen.appendChild(startScreen);
+		messageScreen.style.display = 'flex';
 		messageScreen.addEventListener('click', handler);
 	}
 
@@ -87,7 +89,8 @@ function view (handlers) {
 		function handler (event) {
 			if (event.target.id === 'yes') {
 				yes();
-				messageScreen.removeChild(startScreen);
+				messageScreen.removeChild(screen);
+				messageScreen.style.display = 'none';
 				messageScreen.removeEventListener('click', handler);
 			}
 			if (event.target.id === 'no') {
@@ -97,6 +100,7 @@ function view (handlers) {
 			}
 		}
 		messageScreen.appendChild(screen);
+		messageScreen.style.display = 'flex';
 		messageScreen.addEventListener('click', handler);
 	}
 
