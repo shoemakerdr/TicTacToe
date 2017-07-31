@@ -48,11 +48,11 @@ body {
 	border-color: #0028a3;
 	background-color: #bfcfff;
 	margin: 0;
-	/*padding: .5em;*/
 	width: 33.3%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 
 .space:hover {
@@ -118,4 +118,31 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+@media screen and (max-width: 535px) {
+    .title {
+		font-size: 2em;
+		margin: .25em;
+		color: #0028a3;
+	}
+	
+	.board {
+		width: 250px;
+		height: 250px;
+	}
+	
+	.space {
+		font-size: 3em;
+	}
+	.messageDiv {
+		padding: 1em;
+		font-size: 1.25em;
+		border-width: .1em;
+	}
+	.button {
+		font-size: 1.25em;
+		margin: .25em;
+		padding: .1em .2em;
+	}
 }
