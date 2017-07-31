@@ -1,0 +1,121 @@
+/*body {
+	background-color: #f7d1fc;
+}*/
+
+.title {
+	font-size: 4em;
+	text-align: center;
+	margin: .25em;
+	color: #0028a3;
+}
+
+.board-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.board {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding:0;
+	margin: 0;
+	width: 500px;
+	height: 500px;
+	box-shadow: 0 14px 28px
+    rgba(0,0,0,0.25), 0 10px 10px
+    rgba(0,0,0,0.22);
+}
+
+.row {
+	padding:0;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 33.3%;
+}
+
+.space {
+	font-size: 5em;
+	text-align: center;
+	color: #0028a3;
+	border-width: .05em;
+	border-style: solid;
+	border-color: #0028a3;
+	background-color: #bfcfff;
+	margin: 0;
+	/*padding: .5em;*/
+	width: 33.3%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.space:hover {
+	background-color: #a0b8ff;
+}
+
+.space:active {
+	/*background-color: #aea0ff;*/
+	background-color: #dde6ff;
+}
+
+.state {
+	text-align: center;
+	color: #0028a3;
+}
+
+.messageDiv {
+	position: fixed;
+	z-index: 1050;
+	left: 25%;
+	top: 13%;
+	width: 50%;
+	height: 40%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+	border-width: .1em;
+	border-style: solid;
+	border-color: #0028a3;
+	box-shadow: 0 14px 28px
+    rgba(0,0,0,0.25), 0 10px 10px
+    rgba(0,0,0,0.22);
+}
+
+.button {
+	background-color: #0028a3;
+	color: white;
+	margin: .25em;
+	padding: .1em;
+}
+
+.button:hover {
+	background-color: #a0b8ff;
+	cursor: pointer;
+}
+
+.button:active {
+	color: #0028a3;
+	background-color: #dde6ff;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.message {
+	text-align: center;
+	color: #0028a3;
+}
+
+.options {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
