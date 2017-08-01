@@ -87,8 +87,7 @@ Board.prototype.resetBoard = function() {
 };
 
 Board.prototype.addMove = function (player, row, column) {
-    if (!this.isSpaceOccupied(row, column))
-        this.spaces[row][column] = player;
+    this.spaces[row][column] = player;
 };
 
 Board.prototype.isFull = function() {
@@ -157,14 +156,20 @@ function twoPlayerGame() {
     return new Game(board, noStrategy, noStrategy);
 }
 
-function easyGame() {
+function easyGame(player) {
     const board = new Board();
-    return new Game(board, noStrategy, simpleStrategy);
+    if (player === 'o')
+        return new Game(board, simpleStrategy, noStrategy);
+    if (player === 'x' || player === undefined)
+        return new Game(board, noStrategy, simpleStrategy);
 }
 
-function unbeatableGame() {
+function unbeatableGame(player) {
     const board = new Board();
-    return new Game(board, noStrategy, unbeatableStrategy);
+    if (player === 'o')
+        return new Game(board, unbeatableStrategy, noStrategy);
+    if (player === 'x' || player === undefined)
+        return new Game(board, noStrategy, unbeatableStrategy);
 }
 
 module.exports = {
@@ -196,9 +201,11 @@ Game.prototype.turn = function (row, column) {
         row = move[0];
         column = move[1];
     }
-    this.board.addMove(this.getCurrentPlayer(), row, column);
-    this.nextPlayer();
-};
+    if (this.isValidMove(row, column)) {
+        this.board.addMove(this.getCurrentPlayer(), row, column);
+        this.nextPlayer();
+    }
+}
 
 Game.prototype.restart = function () {
     this.board.resetBoard();
@@ -207,6 +214,18 @@ Game.prototype.restart = function () {
 
 Game.prototype.getAvailableSpaces = function () {
     return this.board.availableSpaces();
+}
+
+Game.prototype.isSpaceOccupied = function (row, column) {
+    return this.board.isSpaceOccupied(row, column);
+}
+
+Game.prototype.isValidMove = function (row, column) {
+    return row >= 0
+            && row <= 2
+            && column >= 0
+            && column <= 2
+            && !this.isSpaceOccupied(row, column);
 }
 
 Game.prototype.getBoardSpaces = function () {
@@ -363,20 +382,20 @@ function unbeatable (game) {
     	const player = game.getCurrentPlayer();
     	const opponent = getOpponent(player);
     	const minimax = getMinimax(player, opponent);
-    	if (isEmpty(game)) return [1,1];
+    	if (game.getBoardSpaces()[1][1] === null) return [1,1];
     	let initialDepth = 0;
     	minimax(game, initialDepth);
     	return choice;
     }
-    
+
     function getOpponent (player) {
     	return (player === 'x') ? 'o' : 'x';
     }
-    
+
     function isEmpty(game) {
     	return game.getAvailableSpaces().length === 9;
     }
-    
+
     function score(game, depth, player, opponent) {
     	return game.isWinner(player)
     			? (10 - depth)
@@ -384,7 +403,7 @@ function unbeatable (game) {
     				? (depth - 10)
     				: 0;
     }
-    
+
     function maxIndex(array) {
     	const max = Math.max.apply(null, array);
     	return array.indexOf(max);
@@ -393,33 +412,33 @@ function unbeatable (game) {
     	const min = Math.min.apply(null, array);
     	return array.indexOf(min);
     }
-    
+
     function possibleGame (move, game) {
     	const dummy = game.dummyGame();
     	dummy.board.addMove(game.getCurrentPlayer(), move[0], move[1]);
     	dummy.nextPlayer();
     	return dummy;
     }
-    
+
     function getMinimax (player, opponent) {
     	return minimax;
-    
+
     	function minimax(game, depth) {
     		if (game.isGameOver())
     			return score(game, depth, player, opponent);
     		const newDepth = depth + 1;
     		const scores = [];
     		const moves = [];
-    
+
     		game.getAvailableSpaces().forEach(move => {
     			const possible = possibleGame(move, game);
     			const score = minimax(possible, newDepth);
     			scores.push(score);
     			moves.push(move);
     		});
-    
+
     		return getMinMaxScore(game.getCurrentPlayer());
-    		
+
     		function getMinMaxScore(currentPlayer) {
     			const maxMinIndex = {
     				[player]: maxIndex(scores),
