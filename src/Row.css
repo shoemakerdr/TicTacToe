@@ -20,20 +20,20 @@
     border-right: 2px solid #888;
 }
 
-@media and screen (min-width: 690px){
+@media (min-width: 520px) {
 
     .Row {
-        height: 200px;
+        height: 160px;
     }
     
     .space {
-        width: 200px;
-        font-size: 48px;
+        width: 160px;
+        font-size: 80px;
     }
     
     
     .space-center {
-        border-left: 2px solid #888;
-        border-right: 2px solid #888;
+        border-left: 4px solid #888;
+        border-right: 4px solid #888;
     }
 }
