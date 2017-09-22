@@ -1,0 +1,17 @@
+.Board-wrapper {
+    padding-top: 114px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Board {
+    width: 270px;
+}
+
+@media and screen (min-width: 690px){
+
+    .Board {
+        width: 600px;
+    }
+}
