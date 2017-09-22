@@ -72,8 +72,10 @@ body {
 .messageDiv {
 	position: fixed;
 	z-index: 1050;
-	align-self: center;
-	padding: 1em;
+	padding: 1em 0;
+  	width: 50%;
+  	left: 25%;
+  	top: 25%;
 	background-color: white;
 	display: flex;
 	justify-content: center;
