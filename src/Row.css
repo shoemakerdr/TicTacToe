@@ -1,0 +1,39 @@
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 90px;
+}
+
+.space {
+    width: 90px;
+    font-size: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-center {
+    border-left: 2px solid #888;
+    border-right: 2px solid #888;
+}
+
+@media and screen (min-width: 690px){
+
+    .Row {
+        height: 200px;
+    }
+    
+    .space {
+        width: 200px;
+        font-size: 48px;
+    }
+    
+    
+    .space-center {
+        border-left: 2px solid #888;
+        border-right: 2px solid #888;
+    }
+}
