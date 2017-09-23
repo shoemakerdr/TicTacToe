@@ -8,7 +8,6 @@
 
 .space {
     width: 90px;
-    font-size: 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +27,6 @@
     
     .space {
         width: 160px;
-        font-size: 80px;
     }
     
     
