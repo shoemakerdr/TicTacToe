@@ -11,7 +11,7 @@ class App extends Component {
                 </div>
                 <div id='messageScreen' className='messageDiv'></div>
                 <Board />
-                <h2 id='gameState' className='state'>Game State</h2>
+                <h2 id='gameState' className='status'>Game State</h2>
             </div>
         )
     }
