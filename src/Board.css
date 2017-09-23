@@ -16,6 +16,11 @@
 
 @media (min-width: 520px) {
 
+    .Board-wrapper {
+        padding-top: 172px;
+        padding-bottom: 16px;
+    }
+
     .Board {
         width: 480px;
     }
