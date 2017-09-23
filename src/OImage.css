@@ -1,0 +1,12 @@
+.OImage {
+    width: 52px;
+    height: 52px;
+}
+
+@media (min-width: 520px) {
+
+    .OImage {
+        width: 90px;
+        height: 90px;
+    }
+}
