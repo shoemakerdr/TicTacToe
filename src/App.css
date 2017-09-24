@@ -10,11 +10,36 @@
   color: white;
 }
 
+.restart-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.restart {
+    width: 50%;
+    max-width: 400px;
+    margin: 4px;
+    padding: 8px;
+    transition: color .5s, background-color .5s;
+    color:#777;
+}
+
+.restart:hover {
+    background-color: #5bc3ff;
+    color:white;
+    cursor: pointer;
+}
+
+.restart:active {
+    background-color: #180db7;
+}
+
 @media (min-width: 520px) {
 
     .title {
         font-size: 60px;
-        margin: 25px 0;
+        margin: 16px 0;
     }
 
     .status {
