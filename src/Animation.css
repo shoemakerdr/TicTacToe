@@ -1,0 +1,10 @@
+.restarting {
+    margin-top: 8px;
+}
+
+@media (min-width: 520px) {
+
+    .restarting {
+        margin-top: 16px;
+    }
+}
