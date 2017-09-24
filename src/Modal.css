@@ -50,6 +50,7 @@
 .button:hover {
     background-color: #5bc3ff;
     color:white;
+    cursor: pointer;
 }
 
 .button:active {
