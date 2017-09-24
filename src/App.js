@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Board from './Board'
 import Modal from './Modal'
-import ticTacToe from 'tictactoe-freecodecamp'
+import ticTacToe from './tictactoe-freecodecamp'
 
 class App extends Component {
     constructor () {
