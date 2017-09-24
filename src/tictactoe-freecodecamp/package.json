@@ -1,0 +1,61 @@
+{
+  "_from": "tictactoe-freecodecamp@latest",
+  "_id": "tictactoe-freecodecamp@2.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-XVn3OjUfY3b6M1Eo08S0ZkcOGpQTfTgTuBFU+5lCxHB65kd5SO4FH6Eh6nh6tuC1gTxshg97bKfEinwW/eipFw==",
+  "_location": "/tictactoe-freecodecamp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "tictactoe-freecodecamp@latest",
+    "name": "tictactoe-freecodecamp",
+    "escapedName": "tictactoe-freecodecamp",
+    "rawSpec": "latest",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tictactoe-freecodecamp/-/tictactoe-freecodecamp-2.0.3.tgz",
+  "_shasum": "835bae965d04b088b3c7074ddd70652e13f48939",
+  "_spec": "tictactoe-freecodecamp@latest",
+  "_where": "/Users/shoemakerdr/dev/js/tic-tac-toe-ui",
+  "author": {
+    "name": "Derek Shoemaker"
+  },
+  "bugs": {
+    "url": "https://github.com/shoemakerdr/tic-tac-toe/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "An npm module for FreeCodeCamp's Tic Tac Toe project",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "webpack": "^3.6.0"
+  },
+  "homepage": "https://github.com/shoemakerdr/tic-tac-toe#readme",
+  "keywords": [
+    "tictactoe",
+    "freecodecamp"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "tictactoe-freecodecamp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoemakerdr/tic-tac-toe.git"
+  },
+  "scripts": {
+    "test": "mocha --require babel-polyfill --compilers js:babel-register --recursive || true"
+  },
+  "version": "2.0.3"
+}

@@ -1,0 +1,21 @@
+.Player {
+    width: 52px;
+    height: 52px;
+}
+
+.animated {
+    animation: spinning-x infinite 1.5s linear;
+}
+
+@keyframes spinning-x {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (min-width: 520px) {
+
+    .Player {
+        width: 90px;
+        height: 90px;
+    }
+}
