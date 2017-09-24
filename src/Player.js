@@ -26,7 +26,7 @@ const playerSrcFromProps = player =>
 const Player = props => (
     <img
         className={props.animated ? 'animated Player' : 'Player'}
-        style={props.animated ? animated : hiddenWithoutPlayer(props.player)}
+        style={props.size ? props.size : props.animated ? animated : hiddenWithoutPlayer(props.player)}
         src={playerSrcFromProps(props.player)}
         alt={props.player}
     />
