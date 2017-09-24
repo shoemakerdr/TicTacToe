@@ -2,6 +2,7 @@
   "name": "tic-tac-toe",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shoemakerdr.github.io/TicTacToe",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -9,12 +10,15 @@
     "tictactoe-freecodecamp": "^2.0.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "webpack": "^3.6.0"
   }
 }
