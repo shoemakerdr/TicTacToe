@@ -8,6 +8,11 @@ const styles = {
     height: 0
 }
 
+const animated = {
+    width: '40px',
+    height: '40px'
+}
+
 const hiddenWithoutPlayer = player =>
     player ? {} : styles
 
@@ -19,12 +24,12 @@ const playerSrcFromProps = player =>
             : null
 
 const Player = props => (
-        <img
-            className='Player'
-            style={hiddenWithoutPlayer(props.player)}
-            src={playerSrcFromProps(props.player)}
-            alt={props.player}
-        />
-    )
+    <img
+        className={props.animated ? 'animated Player' : 'Player'}
+        style={props.animated ? animated : hiddenWithoutPlayer(props.player)}
+        src={playerSrcFromProps(props.player)}
+        alt={props.player}
+    />
+)
 
 export default Player
