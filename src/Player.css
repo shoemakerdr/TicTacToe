@@ -1,11 +1,11 @@
-.OImage {
+.Player {
     width: 52px;
     height: 52px;
 }
 
 @media (min-width: 520px) {
 
-    .OImage {
+    .Player {
         width: 90px;
         height: 90px;
     }
