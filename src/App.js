@@ -79,6 +79,7 @@ class App extends Component {
         this.game = ticTacToe[this.type](player)
         this.setState({
             ...this.initialState,
+            whoseTurn: 'ai',
             modal: this.modalStructs.none,
             status: this.game.getState()
         })
@@ -131,12 +132,13 @@ class App extends Component {
                     board={this.state.board}
                     turn={this.turn}
                 />
-                <h2 id='gameState' className='status'>{this.state.status}</h2>
-                <div
-                    onClick={this.restart}
-                    className='restart'
-                >
-                    {this.state.modal.message ? '' : 'Restart'}
+                <div className='restart-wrapper'>
+                    <div
+                        onClick={this.restart}
+                        className='restart'
+                    >
+                        {this.state.modal.message ? '' : 'Restart'}
+                    </div>
                 </div>
             </div>
         )
