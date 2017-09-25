@@ -79,7 +79,7 @@ class App extends Component {
         this.game = ticTacToe[this.type](player)
         this.setState({
             ...this.initialState,
-            whoseTurn: (this.players === 1 || player === 'o') ? 'ai' : 'human',
+            whoseTurn: (this.players === 1 && player === 'o') ? 'ai' : 'human',
             modal: this.modalStructs.none,
             status: this.game.getState()
         })
