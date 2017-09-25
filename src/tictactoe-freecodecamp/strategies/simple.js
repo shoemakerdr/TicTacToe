@@ -1,4 +1,3 @@
-'use strict';
 
 function simple (game) {
 	const length = game.getAvailableSpaces().length;

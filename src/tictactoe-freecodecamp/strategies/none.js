@@ -1,4 +1,3 @@
-'use strict';
 
 function none (game) {
 	return null;

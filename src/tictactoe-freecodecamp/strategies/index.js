@@ -1,4 +1,3 @@
-'use strict';
 
 import none from './none'
 import simple from './simple'

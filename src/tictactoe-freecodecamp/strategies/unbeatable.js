@@ -1,4 +1,3 @@
-'use strict';
 
 function unbeatable (game) {
     let choice;
@@ -16,10 +15,6 @@ function unbeatable (game) {
 
     function getOpponent (player) {
     	return (player === 'x') ? 'o' : 'x';
-    }
-
-    function isEmpty(game) {
-    	return game.getAvailableSpaces().length === 9;
     }
 
     function score(game, depth, player, opponent) {

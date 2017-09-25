@@ -1,7 +1,6 @@
 
 import Game from './game'
 import Board from './board'
-import strategies from './strategies'
 import { none, simple, unbeatable } from './strategies'
 
 function twoPlayerGame() {

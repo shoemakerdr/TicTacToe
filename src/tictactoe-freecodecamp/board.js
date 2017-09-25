@@ -1,4 +1,3 @@
-'use strict';
 
 function Board(spaces) {
     this.spaces = spaces || [
